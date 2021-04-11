@@ -20,4 +20,5 @@ pprint(re.findall(r'(?=.*[^in]active).+', texto))
 
 
 # positive lookbehind
-pprint(re.findall(r'\w+(?<=)\s+(\d+\.\d+\.\d+\.\d+)\s+\w+\s+\w+', texto))
+pprint(re.findall(r'\w+(?<=ONLINE)\s+(\d+\.\d+\.\d+\.\d+)\s+\w+\s+\w+', texto))
+pprint(re.findall(r'\w+(?<!ONLINE)\s+(\d+\.\d+\.\d+\.\d+)\s+\w+\s+\w+', texto))
