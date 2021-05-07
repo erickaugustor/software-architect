@@ -1,8 +1,10 @@
-export abstract class oldDiscount {
+// Strategy + Injeção de Dependencia
+
+abstract class oldDiscount {
   abstract calculate(value: number): number;
 }
 
-export class oldFifityPercentDiscount extends oldDiscount {
+class OldFifityPercentDiscount extends oldDiscount {
   private readonly discount = 0.5;
 
   calculate(price: number): number {
@@ -10,9 +12,24 @@ export class oldFifityPercentDiscount extends oldDiscount {
   }
 }
 
+class OldShoppingCart {
+  public total = 2
+
+  constructor(
+    private readonly discountStrategy: oldDiscount,
+  ) {}
+
+  applyDiscount(): number {
+    return this.discountStrategy.calculate(this.total));
+  }
+}
+
+const fifityPercent = new OldFifityPercentDiscount();
+new OldShoppingCart(fifityPercent);
+
 /********/
 
-export abstract class Discount {
+abstract class Discount {
   protected discount = 0;
   
   calculate(price: number): number {
@@ -20,6 +37,6 @@ export abstract class Discount {
   }
 }
 
-export class FifityPercentDiscount extends Discount {
+class FifityPercentDiscount extends Discount {
   protected readonly discount = 0.5;
 }
