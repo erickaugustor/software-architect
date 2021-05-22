@@ -1,0 +1,4 @@
+/^(\w.*),(\d{2}),(\w*.\s\w+),(\w+)$/
+{"_id": "$1", "name": "$3", "company": "$4", "age": "$2"}
+
+https://next.json-generator.com/V1nO4HHdq
